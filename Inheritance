@@ -1,0 +1,196 @@
+public class Main {
+    public static void main(String[] args) {
+       Programmer p = new Programmer();
+      p.accept();
+      p.paySlip();
+
+    }
+}
+// Employee class
+public class Employee {
+    private String name;
+    private int id;
+    private String address;
+    private String mail;
+    private long num;
+    private double basePay;
+
+    public Employee() {
+    }
+
+    Scanner sc = new Scanner(System.in);
+
+    public Employee(String name, int id, String address, String mail, long num) {
+        this.name = name;
+        this.id = id;
+        this.address = address;
+        this.mail = mail;
+        this.num = num;
+    }
+
+    public void accept() {
+        System.out.println("Enter name ");
+        this.name = sc.nextLine();
+        System.out.println("Enter id");
+        this.id = sc.nextInt();
+        System.out.println("Enter Address ");
+        this.address = sc.nextLine();
+        sc.nextLine();
+        System.out.println("Enter E-mail ");
+        this.mail = sc.nextLine();
+        System.out.println("Enter Mobile Number ");
+        this.num = sc.nextLong();
+
+    }
+
+    public void display() {
+        System.out.println("Name : " + this.name);
+        System.out.println("Employee Id : " + this.id);
+        System.out.println("Address : " + this.address);
+        System.out.println("E-mail : " + this.mail);
+        System.out.println("Mobile number : " + this.num);
+
+    }
+
+
+    public void paySlip() {
+        System.out.println("Enter a base pay amount: ");
+        this.basePay = sc.nextDouble();
+
+        double da = (97.0 / 100) * this.basePay;
+        double hra = (10.0 / 100) * this.basePay;
+        double pf = (12.0 / 100) * this.basePay;
+        double club = (0.1 / 100) * this.basePay;
+
+        double gross = basePay + hra + da + club;
+        double net = gross - pf;
+
+
+        System.out.printf(
+                "Name : %s%n" +
+                        "Employee id : %d%n" +
+                        "Role : %s%n" +
+                        "Base Pay : %.2f%n" +
+                        "DA : %.2f%n" +
+                        "HRA : %.2f%n" +
+                        "PF : %.2f%n" +
+                        "Staff Club Fund : %.2f%n" +
+                        "-----------------------%n" +
+                        "Total gross salary : %.2f%n" +
+                        "Total net salary : %.2f%n",
+                this.name, this.id, this.getClass().getSimpleName(), basePay, da, hra, pf, club, gross, net
+        );
+    }
+}
+// Programmer class
+public class Programmer extends Employee{
+    public Programmer() {
+    }
+
+    public Programmer(String name, int id, String address, String mail, long num) {
+        super(name, id, address, mail, num);
+    }
+
+    @Override
+    public void accept() {
+        super.accept();
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Employee Type " + getClass().getName());
+        super.display();
+    }
+
+
+
+    @Override
+    public void paySlip() {
+        super.paySlip();
+    }
+}
+// Team lead
+public class TeamLead extends Employee {
+    private int basePay;
+    public TeamLead() {
+    }
+
+    public TeamLead(String name, int id, String address, String mail, long num) {
+        super(name, id, address, mail, num);
+    }
+
+    @Override
+    public void accept() {
+        super.accept();
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Employee Type " + getClass().getName());
+        super.display();
+    }
+
+
+
+    @Override
+    public void paySlip() {
+        super.paySlip();
+    }
+}
+//Product manager
+public class ProjectManager extends Employee{
+    private int basePay;
+    public ProjectManager() {
+    }
+
+    public ProjectManager(String name, int id, String address, String mail, long num) {
+        super(name, id, address, mail, num);
+    }
+
+    @Override
+    public void accept() {
+        super.accept();
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Employee Type " + getClass().getName());
+        super.display();
+    }
+
+
+
+
+    @Override
+    public void paySlip() {
+        super.paySlip();
+    }
+}
+//Assistance project managaer
+public class AssProject extends Employee {
+    private int basePay;
+    public AssProject() {
+    }
+
+    public AssProject(String name, int id, String address, String mail, long num) {
+        super(name, id, address, mail, num);
+    }
+
+    @Override
+    public void accept() {
+        super.accept();
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Employee Type : " + "Assistance Project Manager");
+        super.display();
+    }
+
+
+
+    @Override
+    public void paySlip() {
+        super.paySlip();
+    }
+}
